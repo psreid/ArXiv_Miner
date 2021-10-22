@@ -33,7 +33,7 @@ class ArxivPdf:
 
     def save_arxiv_plaintext(self, pdf_text="None", path=''):
         # Simple write function to ArXiv ID file
-        text_file = open(path +"ArXiv_" + self.id + ".txt", "w")
+        text_file = open(path + "ArXiv_" + self.date + ".txt", "w")
         text_file.write("\n\n".join(pdf_text).lower())
         text_file.close()
 

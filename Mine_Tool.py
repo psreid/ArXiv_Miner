@@ -33,7 +33,18 @@ def convert_pdf_query_to_text(target='Target.pdf'):
                     os.remove(target)  # Remove PDF to sort any memory leakage
             except:
                 pdf = 'nullpdf'
-                print('PDF with not found')
+                print('PDF not found')
+        return pdf
+    except FileNotFoundError:
+        return 'Dummy string'
+
+
+def load_plaintext_file(target='Target.pdf'):
+    try:
+        with open(target, "rb") as f:
+
+            pdf = f.read()
+
         return pdf
     except FileNotFoundError:
         return 'Dummy string'

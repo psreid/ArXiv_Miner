@@ -1,6 +1,8 @@
 import pandas as pd
 import Mine_Tool as Mtl
 import ArXiv as ArX
+from os import listdir
+from os.path import isfile, join
 
 
 class Mine:
@@ -66,6 +68,26 @@ class Mine:
 
         if to_csv:
             self.mine_data.to_csv('arXiv_mention_' + self.wordlist[0] + 'full.csv', mode='a')
+
+    def load_mine_from_dir(self, path=''):
+        # Generates a mine from a directory consisting of nothing but plaintext folders.
+        files = [f for f in listdir(path) if isfile(join(path, f))]
+        for file in files:
+            return
+
+
+def clean_empty_files(path=''):
+    # a second pass checking saved files for "nullpdf".
+    files = [f for f in listdir(path) if isfile(join(path, f))]
+    for file in files:
+        if Mtl.pdf_contains_word(pdf_text=Mtl.load_plaintext_file(file), wordlist='nullpdf'):
+            file_id = file.replace("ArXiv_plaintextArXiv_", "hep-ex/")
+            file_id = file_id.replace(".txt", "")
+            Mtl.get_arxiv_pdf(pdf_id=file_id)
+            pdf_text = Mtl.convert_pdf_query_to_text()
+            file_arx = ArX.ArxivPdf(pdf_id=file_id)
+            file_arx.save_arxiv_plaintext(pdf_text=pdf_text)
+
 
 
 
