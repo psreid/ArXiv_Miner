@@ -7,18 +7,23 @@ import urllib.request
 
 def get_arxiv_pdf(pdf_id, target='Target.pdf'):
     # Attempts to locate an ArXiv pdf with a specific id
-    try:
-        urllib.request.urlretrieve('https://export.arxiv.org/pdf/' + pdf_id + '.pdf', target)
-
-        return None
-    except:
-        print('ArXiv PDF not present at address')
-
+    flag = 0
+    while flag < 2:
         try:
-            pdf_id.replace("hep-ex/", "")
             urllib.request.urlretrieve('https://export.arxiv.org/pdf/' + pdf_id + '.pdf', target)
+            flag += 1
+            return None
         except:
-            print('still failed to find PDF with replaced hep-ex prefix')
+            print('ArXiv PDF not present at address')
+
+            try:
+                pdf_id.replace("hep-ex/", "")
+                urllib.request.urlretrieve('https://export.arxiv.org/pdf/' + pdf_id + '.pdf', target)
+                flag += 1
+                return None
+            except:
+                print('still failed to find PDF with replaced hep-ex prefix')
+                flag += 1
 
 
 def convert_pdf_query_to_text(target='Target.pdf'):
