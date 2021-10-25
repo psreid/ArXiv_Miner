@@ -80,6 +80,7 @@ def clean_empty_files(path=''):
     # a second pass checking saved files for "nullpdf".
     files = [f for f in listdir(path) if isfile(join(path, f))]
     for file in files:
+        print(file)
         if Mtl.pdf_contains_word(pdf_text=Mtl.load_plaintext_file(file), wordlist='nullpdf'):
             print("File contains" + Mtl.load_plaintext_file(file))
             file_id = file.replace("ArXiv_plaintextArXiv_", "hep-ex/")
