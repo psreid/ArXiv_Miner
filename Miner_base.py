@@ -81,12 +81,14 @@ def clean_empty_files(path=''):
     # FIXME clean this. There are a ton of redundancies so that it works.
     files = [f for f in listdir(path) if isfile(join(path, f))]
     for file in files:
-        print(file)
-        flag = Mtl.pdf_contains_word(pdf_text=Mtl.load_plaintext_file(target=join(path, file)), wordlist='nullpdf')
+        print(join(path, file))
+        print(Mtl.load_plaintext_file(target=str(join(path, file))))
+        flag = Mtl.pdf_contains_word(pdf_text=str(Mtl.load_plaintext_file(target=join(path, file))),
+                                     wordlist='n\nu\nl\nl\np\nd\nf')
         print(flag)
         if flag:
-            print("File contains" + Mtl.load_plaintext_file(join(path, file)))
-            dummy_flag = Mtl.load_plaintext_file(join(path, file))
+            print("File contains" + str(Mtl.load_plaintext_file(join(path, file))))
+            dummy_flag = str(Mtl.load_plaintext_file(join(path, file)))
             if dummy_flag != 'Dummy string':
                 # Now test both ArXiv URL formats
                 file_id = file.replace("ArXiv_plaintextArXiv_", "hep-ex/")
