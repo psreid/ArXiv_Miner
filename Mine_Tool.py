@@ -59,7 +59,6 @@ def pdf_contains_word(pdf_text, wordlist, lower=True):
 
     # Boolean expression checking entire word list versus arXiv plaintext
     # First checks if you care about case sensitivity
-    print(pdf_text)
     if lower:
         sentence = "\n\n".join(pdf_text).lower()
     else:

@@ -83,10 +83,11 @@ def clean_empty_files(path=''):
     for file in files:
         print(join(path, file))
         print(Mtl.load_plaintext_file(target=str(join(path, file))))
-        flag = Mtl.pdf_contains_word(pdf_text=str(Mtl.load_plaintext_file(target=join(path, file))),
-                                     wordlist='n\nu\nl\nl\np\nd\nf')
-        print(flag)
-        if flag:
+        #flag = Mtl.pdf_contains_word(pdf_text=str(Mtl.load_plaintext_file(target=join(path, file))),
+        #                             wordlist=str('b' + 'n\nu\nl\nl\np\nd\nf'))
+        flag = Mtl.load_plaintext_file(target=str(join(path, file)))
+        print(len(flag))
+        if len(str(flag)) < 50:
             print("File contains" + str(Mtl.load_plaintext_file(join(path, file))))
             dummy_flag = str(Mtl.load_plaintext_file(join(path, file)))
             if dummy_flag != 'Dummy string':
