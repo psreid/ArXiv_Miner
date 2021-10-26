@@ -82,7 +82,7 @@ def clean_empty_files(path=''):
     files = [f for f in listdir(path) if isfile(join(path, f))]
     for file in files:
         print(join(path, file))
-        print(Mtl.load_plaintext_file(target=str(join(path, file))))
+        #print(Mtl.load_plaintext_file(target=str(join(path, file))))
         #flag = Mtl.pdf_contains_word(pdf_text=str(Mtl.load_plaintext_file(target=join(path, file))),
         #                             wordlist=str('b' + 'n\nu\nl\nl\np\nd\nf'))
         flag = Mtl.load_plaintext_file(target=str(join(path, file)))
