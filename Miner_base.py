@@ -78,6 +78,7 @@ class Mine:
 
 def clean_empty_files(path=''):
     # a second pass checking saved files for "nullpdf".
+    # FIXME clean this. There are a ton of redundancies so that it works.
     files = [f for f in listdir(path) if isfile(join(path, f))]
     for file in files:
         print(file)
@@ -85,12 +86,16 @@ def clean_empty_files(path=''):
         print(flag)
         if flag:
             print("File contains" + Mtl.load_plaintext_file(file))
-            file_id = file.replace("ArXiv_plaintextArXiv_", "hep-ex/")
-            file_id = file_id.replace(".txt", "")
-            Mtl.get_arxiv_pdf(pdf_id=file_id)
-            pdf_text = Mtl.convert_pdf_query_to_text()
-            file_arx = ArX.ArxivPdf(pdf_id=file_id)
-            file_arx.save_arxiv_plaintext(pdf_text=pdf_text)
+            dummy_flag = Mtl.load_plaintext_file(file)
+            if dummy_flag != 'Dummy string':
+                file_id = file.replace("ArXiv_plaintextArXiv_", "hep-ex/")
+                file_id = file_id.replace(".txt", "")
+                Mtl.get_arxiv_pdf(pdf_id=file_id)
+                pdf_text = Mtl.convert_pdf_query_to_text()
+                file_arx = ArX.ArxivPdf(pdf_id=file_id)
+                file_arx.save_arxiv_plaintext(pdf_text=pdf_text)
+            else:
+                print("File contains Dummy string")
         else:
             print("Filename" + file + "is not empty")
 
