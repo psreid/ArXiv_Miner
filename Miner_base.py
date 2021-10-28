@@ -48,7 +48,7 @@ class Mine:
 
         if to_csv:
             self.mine_data.to_csv('arXiv_mention_' + self.wordlist[0] + 'full.csv', mode='a')
-
+        print("Saved to arXiv_mention_" + self.wordlist[0] + "full.csv")
         return None
 
     def compile_remote_arxiv_lib(self, to_csv=True, save_plaintext=False):
