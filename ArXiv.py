@@ -40,8 +40,8 @@ class ArxivPdf:
     def search_plaintext(self, wordlist=None, path=''):
         # Finnicky naming system makes this method less reliable
         with open(path + "ArXiv_" + self.id + ".txt", "r") as f:
-            lines = f.read()
-            if len(lines) < 50:
+            lines = f.readlines()
+            if len('\n'.join(lines)) < 50:
                 print("Warning, " + self.id + " may not be an ArXiv Article (too small)")
             f.close()
         self. mention = Mtl.pdf_contains_word(lines, wordlist=wordlist)
