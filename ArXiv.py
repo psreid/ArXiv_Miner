@@ -38,6 +38,7 @@ class ArxivPdf:
         text_file.close()
 
     def search_plaintext(self, wordlist=None, path=''):
+        # Finnicky naming system makes this method less reliable
         with open(path + "ArXiv_" + self.id + ".txt", "r") as f:
             lines = f.read()
             print(lines)
