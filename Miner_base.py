@@ -95,8 +95,7 @@ def clean_empty_files(path=''):
         print('Checking File ' + join(path, file))
         flag = Mtl.load_plaintext_file(target=str(join(path, file)))
         print('File size ' + len(flag) + 'Characters')
-        if len(str(flag)) < 50:
-            #print("File contains" + str(Mtl.load_plaintext_file(join(path, file))))
+        if len(str(flag)) < 50:  # Not sophisticated, but length of file works well enough as a check
             dummy_flag = str(Mtl.load_plaintext_file(join(path, file)))
             if dummy_flag != 'Dummy string':
                 # Now test both ArXiv URL formats
