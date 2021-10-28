@@ -40,8 +40,10 @@ class ArxivPdf:
     def search_plaintext(self, wordlist=None, path=''):
         with open(path + "ArXiv_" + self.id + ".txt", "r") as f:
             lines = f.read()
+            print(lines)
             f.close()
-        Mtl.pdf_contains_word(lines, wordlist=wordlist)
+        self. mention = Mtl.pdf_contains_word(lines, wordlist=wordlist)
+        return self.id, self.year, self.month, self.mention
 
 
 
