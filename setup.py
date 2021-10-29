@@ -5,9 +5,9 @@ setup(
     version='0.1',
     packages=[''],
     install_requires=[
+        'cython',
         'pandas==1.3.2',
         'pdftotext==2.2.1',
-        'cython',
          'numpy']
     ,
     url='',
