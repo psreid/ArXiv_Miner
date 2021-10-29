@@ -6,7 +6,8 @@ setup(
     packages=[''],
     install_requires=[
         'pandas==1.3.2',
-        'pdftotext==2.2.1']
+        'pdftotext==2.2.1',
+         'numpy']
     ,
     url='',
     license='',
