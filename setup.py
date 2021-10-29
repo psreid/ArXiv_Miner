@@ -5,8 +5,8 @@ setup(
     version='0.1',
     packages=[''],
     install_requires=[
-        'pandas~=1.3.2'
-        'pdftotext~=2.2.0']
+        'pandas==1.3.2'
+        'pdftotext==2.2.1']
     ,
     url='',
     license='',
