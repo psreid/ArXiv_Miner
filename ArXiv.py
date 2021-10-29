@@ -2,6 +2,10 @@ import Mine_Tool as Mtl
 
 
 class ArxivPdf:
+    # Class represents a single ArXivPdf
+    # Best workflow for development is to use save_arxiv_plaintext followed by search_plaintext
+    # rather than retrieve_full_info
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     def __init__(self, pdf_id):
         self.id = pdf_id
@@ -23,7 +27,7 @@ class ArxivPdf:
     def retrieve_full_info(self, wordlist=None, save_plaintext=False):
         # Entire ArXiv workflow is here,
         # Takes ArXiv address and returns a boolean if the word exists within the specific PDF
-        # Best Practice is to use Mine.save_local_arxiv_library() and then probe plaintext
+        # Best Practice is to use Mine.save_local_arxiv_library() and then query plaintext
         Mtl.get_arxiv_pdf(pdf_id=self.id)
         pdf_text = Mtl.convert_pdf_query_to_text()
         if save_plaintext:

@@ -9,6 +9,7 @@ class Mine:
 
     # Mine is the Overarching container for all the ArXiv PDF ID's, Potential words that need queried,
     # and high level search/API query commands to be conducted from the lower ArXivPDF class
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     def __init__(self, id_list=None, wordlist=None):
 
@@ -67,7 +68,6 @@ class Mine:
                                         columns=['id', 'year', 'month', 'mention'])
             self.mine_data.loc[index] = temp_id, temp_year, temp_month, temp_mention
 
-
             # Save the data every attempt
             if to_csv:
                 self.temp_row.to_csv('arXiv_mention_' + self.wordlist[0] + '.csv', mode='a', header=False)
@@ -87,14 +87,14 @@ class Mine:
         return
 
 
-def clean_empty_files(path=''):
+def clean_empty_files(path='/ArXiv_plaintext/'):
     # a second pass checking saved files for "nullpdf".
-    # FIXME clean this. There are a ton of redundancies so that it works.
+    # TODO clean this for readability
     files = [f for f in listdir(path) if isfile(join(path, f))]
     for file in files:
         print('Checking File ' + join(path, file))
         flag = Mtl.load_plaintext_file(target=str(join(path, file)))
-        print('File size ' + len(flag) + 'Characters')
+        print('File size ' + len(str(flag)) + ' Characters')
         if len(str(flag)) < 50:  # Not sophisticated, but length of file works well enough as a check
             dummy_flag = str(Mtl.load_plaintext_file(join(path, file)))
             if dummy_flag != 'Dummy string':
