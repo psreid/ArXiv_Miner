@@ -2,6 +2,7 @@
 # This will automatically perform a search specific queries through the entire ArXiv plaintext library
 # and save as a CSV file. Where mention = 0 means no instance of the wordlist
 # and mention = 1 means word from wordlist was found.
+# if you're on CEDAR feel free to source
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 from Miner_base import *
 
