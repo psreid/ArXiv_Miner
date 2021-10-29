@@ -5,10 +5,9 @@ setup(
     version='0.1',
     packages=[''],
     install_requires=[
-        'Cython>0.28',
         'pandas==1.3.2',
         'pdftotext==2.2.1',
-         'numpy>=1.14.0,<1.16.0']
+         'numpy==1.21.2']
     ,
     url='',
     license='',
