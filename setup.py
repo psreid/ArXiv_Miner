@@ -5,7 +5,7 @@ setup(
     version='0.1',
     packages=[''],
     install_requires=[
-        'cython',
+        'Cython>0.28',
         'pandas==1.3.2',
         'pdftotext==2.2.1',
          'numpy']
