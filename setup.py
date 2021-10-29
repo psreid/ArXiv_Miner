@@ -8,7 +8,7 @@ setup(
         'Cython>0.28',
         'pandas==1.3.2',
         'pdftotext==2.2.1',
-         'numpy']
+         'numpy>=1.14.0,<1.16.0']
     ,
     url='',
     license='',
