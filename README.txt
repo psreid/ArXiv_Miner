@@ -14,7 +14,9 @@
 
 # Navigate to ArXiv_Miner source
 
-# pip install cython
+# pip3 install numpy
+# pip3 install pandas
+# pip3 install pdftotext
 # python3 setup.py install
 #
 

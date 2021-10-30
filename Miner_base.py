@@ -21,7 +21,7 @@ class Mine:
         if self.wordlist is None:
             print('Warning: you are attempting build a arXiv word searcher without search words!')
         if self.id_list is None:
-            print('Warning: Empty arXiv IDs, id_list must not be None')
+            print('Warning: Empty arXiv IDs when initializing, id_list must not be None')
 
     def save_local_arxiv_lib(self, path=''):
         # If we want to download the library separate from analysis
