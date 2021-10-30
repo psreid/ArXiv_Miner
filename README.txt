@@ -13,7 +13,10 @@
 # source ARXENV/bin/activate
 
 # Navigate to ArXiv_Miner source
-#
+
+# pip install cython
 # python3 setup.py install
+#
+
 
 # Then you can run BDT_workflow script from job submissions
