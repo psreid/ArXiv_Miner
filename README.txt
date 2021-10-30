@@ -17,7 +17,7 @@
 # pip3 install numpy
 # pip3 install pandas
 # pip3 install pdftotext
-# python3 setup.py install
+# python3 setup.py install (not necessary command on cedar)
 #
 
 
