@@ -8,7 +8,7 @@
 # ------------
 # setup a virtual env with the following commands
 
-# module load python/3.8
+# module load python/3.7
 # virtualenv --no-download ARXENV
 # source ARXENV/bin/activate
 
